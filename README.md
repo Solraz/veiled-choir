@@ -3,7 +3,7 @@
 > There are certain beings, woven from the threads of light and shadow, whose names echo through the oldest corners of our history.
 >
 > This library belongs to the angels known as The Veiled Choir.
-> They are not the gentle protectors we imagine, but watches, keepers of secrets beyond human understanding.
+> They are not the gentle protectors we imagine, but watchers, keepers of secrets beyond human understanding.
 > To know their names is to glimpse a deeper truth: each angel represents a forgotten covenant, an ancient balance that safeguards > our world.
 
 ### Purpose
