@@ -1,0 +1,76 @@
+{% for work in page.extra.works %}
+<work
+  class="gap-3 margin-b-10 padding-y-4 padding-x-5 border-2 border-dark border-radius-3"
+>
+  <div class="work-title flex flex-y-baseline gap-3">
+    <h2>{{work.name}}</h2>
+    <a
+      class="color-secondary hover-light transition-duration-gentle transition-all transition-timing-entry flex flex-y-center"
+      href="{{work.link}}"
+      >./cd →</a
+    >
+  </div>
+  <div class="work-tags flex gap-2">
+    {% for tag in work.tags %}
+    <h5
+      class="border-2 border-hover-primary border-secondary border-radius-3 padding-y-1 padding-x-3 color-secondary hover-light transition-duration-gentle transition-all transition-timing-entry cursor-pointer"
+    >
+      {{tag}}
+    </h5>
+    {% endfor %}
+  </div>
+  <content class="">
+    <div class="content-holder">
+      <div class="description-holder flex flex-y-center flex-x-center">
+        <div
+          class="description-inner-holder flex flex-column flex-y-start flex-x-center gap-5"
+        >
+          {% for desc in work.description %}
+          <div
+            class="description-content gap-2 flex flex-column flex-x-center transition-all transition-timing-entry{% if desc.first %} active{% endif %}"
+          >
+            <h3 class="margin-b-2">{{desc.title}}</h3>
+            {% for desc2 in desc.description %}
+            <p class="color-lightgrey">{{desc2 | safe}}</p>
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="navigation-holder flex flex-y-end flex-x-start gap-3">
+        <previous-work-navigation-pill
+          class="border-b-1 border-light transition-duration-gentle transition-all transition-timing-entry"
+        ></previous-work-navigation-pill>
+        <previous-work-navigation-names class="flex gap-2">
+          {% for desc in work.description %}
+          <span
+            class="color-secondary hover-light transition-duration-gentle transition-all transition-timing-entry flex flex-y-center"
+          >
+            {% if desc.minititle %} {{desc.minititle}} {% else %} {{desc.title}}
+            {% endif %}
+          </span>
+          {% endfor %}
+        </previous-work-navigation-names>
+        <previous-work-navigation-indicators class="flex gap-1">
+          {% for desc in work.description %}
+          <div
+            class="bg-secondary border-radius-pill transition-duration-gentle transition-all transition-timing-entry"
+          ></div>
+          {% endfor %}
+        </previous-work-navigation-indicators>
+      </div>
+    </div>
+    <div
+      class="main-holder border-2 border-radius-3 border-primary transition-duration-very-long transition-opacity transition-timing-slow"
+    >
+      <div class="image-container flex gap-4">
+        {% for image in work.images %}
+        <div class="inner-image-container">
+          <img class="" src="{{get_url(path='' ~ image)}}" alt="" srcset="" />
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </content>
+</work>
+{% endfor %}

@@ -1,0 +1,201 @@
+@use "mixins/bootstrap" as *;
+@use "mixins/typography";
+
+@use "components/navbar";
+@use "components/banner";
+@use "components/previous-works";
+@use "components/contact-drawer";
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: get($colors, body);
+  color: get($colors, light);
+}
+
+main {
+  padding: rem(40) 0 rem(160);
+}
+
+@each $key, $value in $colors {
+  .color-#{$key} {
+    color: #{$value};
+  }
+
+  .hover-#{$key} {
+    &:hover {
+      color: #{$value};
+    }
+  }
+
+  .bg-#{$key} {
+    background-color: #{$value};
+  }
+
+  .border-#{$key} {
+    border-color: #{$value};
+  }
+
+  .border-hover-#{$key} {
+    &:hover {
+      border-color: #{$value};
+    }
+  }
+}
+
+@each $key, $value in $spacings {
+  .padding-#{$key} {
+    padding: rem(#{$value});
+  }
+
+  .padding-t-#{$key} {
+    padding-top: rem(#{$value});
+  }
+  .padding-r-#{$key} {
+    padding-right: rem(#{$value});
+  }
+  .padding-b-#{$key} {
+    padding-bottom: rem(#{$value});
+  }
+  .padding-l-#{$key} {
+    padding-left: rem(#{$value});
+  }
+
+  .padding-y-#{$key} {
+    padding-top: rem(#{$value});
+    padding-bottom: rem(#{$value});
+  }
+
+  .padding-x-#{$key} {
+    padding-left: rem(#{$value});
+    padding-right: rem(#{$value});
+  }
+
+  .margin-#{$key} {
+    margin: rem(#{$value});
+  }
+
+  .margin-t-#{$key} {
+    margin-top: rem(#{$value});
+  }
+  .margin-r-#{$key} {
+    margin-right: rem(#{$value});
+  }
+  .margin-b-#{$key} {
+    margin-bottom: rem(#{$value});
+  }
+  .margin-l-#{$key} {
+    margin-left: rem(#{$value});
+  }
+
+  .margin-y-#{$key} {
+    margin-top: rem(#{$value});
+    margin-bottom: rem(#{$value});
+  }
+
+  .margin-x-#{$key} {
+    margin-left: rem(#{$value});
+    margin-right: rem(#{$value});
+  }
+
+  .border-radius-#{$key} {
+    border-radius: rem(#{$value});
+  }
+
+  .gap-#{$key} {
+    gap: rem(#{$value});
+  }
+}
+.border-radius-pill {
+  border-radius: rem(999);
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-column {
+  flex-flow: column;
+}
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+.flex-x-center {
+  justify-content: center;
+}
+.flex-y-center {
+  align-items: center;
+}
+.flex-y-end {
+  align-items: end;
+}
+.flex-x-end {
+  justify-content: end;
+}
+.flex-y-baseline {
+  align-items: baseline;
+}
+
+@for $i from 1 through 4 {
+  .border-#{$i} {
+    border-width: calc(1px * $i);
+    border-style: solid;
+  }
+
+  .border-b-#{$i} {
+    border-bottom-width: calc(1px * $i);
+    border-bottom-style: solid;
+  }
+}
+
+.transition-all {
+  transition-property: all;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+}
+
+@each $key, $value in $animation-durations {
+  .transition-duration-#{$key} {
+    transition-duration: #{$value};
+  }
+}
+
+@each $key, $value in $timings {
+  .transition-timing-#{$key} {
+    transition-timing-function: #{$value};
+  }
+}
+
+.font-small-caps {
+  font-variant: all-small-caps;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.content-grid,
+container {
+  display: grid;
+  grid-template-columns:
+    [grid-start] minmax(rem(16), 1fr) [content-start] minmax(
+      min(calc(100% - rem(32)), 1280px),
+      1fr
+    )
+    [content-end] minmax(rem(16), 1fr) [grid-end];
+  width: 100%;
+
+  & > *:not(.breakout) {
+    grid-column: content;
+  }
+
+  & > .breakout {
+    grid-column: grid;
+  }
+}

@@ -1,0 +1,18 @@
+{% macro title() %}
+<title>
+  {% if section.title %}
+    {% if section.page.title %}
+      {{section.page.title }}
+    {% else %}
+      {{ section.title }}
+    {% endif %}
+  {% else %}
+    {{ config.title }}
+  {% endif %}
+</title>
+{% endmacro title %}
+
+{% macro scripts() %}
+<script src="{{ get_url(path='scripts/htmx.min.js') }}"></script>
+<script src="{{ get_url(path='scripts/scripts.js') }}" type="module"></script>
+{% endmacro scripts %}

@@ -1,0 +1,14 @@
+{% set count = 0 %}
+{% for asset in page.assets %}
+
+{% if asset is matching("[.](jpg|png|webp)$") %}
+{% set image = resize_image(path=asset, width=300, op="fit_width") %}
+<work>
+  <img-container>
+    <img src="{{ image.url | safe }}" />
+  </img-container>
+</work>
+{% endif %}
+
+{% set count = count + 1 %}
+{% endfor %}

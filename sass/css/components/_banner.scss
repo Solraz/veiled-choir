@@ -1,0 +1,132 @@
+@use "../mixins/bootstrap" as *;
+
+banner {
+  display: flex;
+  height: clamp(rem(600), 100vh, rem(1080));
+  width: 100%;
+
+  color: get($colors, white);
+
+  position: relative;
+  overflow: hidden;
+
+  .background-holder {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+
+    img {
+      position: absolute;
+
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+
+      object-fit: cover;
+    }
+  }
+
+  container {
+    height: 100%;
+    place-content: center;
+    text-align: center;
+  }
+
+  p {
+    color: get($colors, white);
+    font-weight: 400;
+  }
+
+  a {
+    color: get($colors, tertiary);
+  }
+
+  .glass-holder {
+    height: 500px;
+    width: 100%;
+
+    position: absolute;
+    bottom: -420px;
+
+    z-index: 3;
+
+    backdrop-filter: blur(rem(1));
+
+    background: transparent;
+
+    mask {
+      height: 100%;
+      width: 100%;
+
+      background-color: get($colors, body);
+
+      position: absolute;
+
+      z-index: 3;
+
+      mask-image: linear-gradient(
+        to top,
+        get($colors, body),
+        transparentize(get($colors, body), 0.5) 50%,
+        transparentize(get($colors, body), 1) 100%
+      );
+    }
+  }
+
+  .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+
+    z-index: 2;
+
+    .logo {
+      height: rem(256);
+
+      img {
+        user-select: none;
+        -webkit-user-drag: none;
+        height: 100%;
+        width: auto;
+      }
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      flex-flow: column;
+
+      gap: rem(0);
+
+      text-align: start;
+
+      max-width: rem(500);
+
+      text-align: center;
+
+      h1 {
+        width: 100%;
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: rem(15);
+
+        width: 100%;
+
+        a {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

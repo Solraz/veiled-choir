@@ -1,0 +1,72 @@
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@font-face {
+  font-family: Atkinson;
+  src: "./fonts/AtkinsonHyperlegibleNext[wght].ttf";
+}
+
+@font-face {
+  font-family: Atkinson;
+  src: "./fonts/AtkinsonHyperlegibleNext[wght].ttf" format("truetype");
+  font-style: "italic";
+}
+
+@theme {
+  /* --color-veil: #2e1e1d; */
+  --color-veil: #120c64;
+  --color-mask: #dccdc6;
+
+  --font-seraphim: Atkinson, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+body {
+  @apply bg-zinc-800 text-stone-100 font-seraphim;
+}
+
+main {
+}
+
+nav {
+  @apply flex w-full h-16 py-3 px-6 text-sm;
+
+  .nav-container {
+    @apply w-full flex justify-start items-center flex-nowrap bg-zinc-900 px-4 py-7 rounded-lg;
+
+    .logo {
+      @apply h-8 w-8 rounded-xl overflow-hidden mr-4;
+    }
+  }
+
+  .item {
+    @apply text-stone-100 px-3 py-1 border border-solid border-stone-100 rounded-lg;
+  }
+
+  .search {
+    @apply flex relative items-center flex-nowrap ml-auto;
+
+    > span {
+      @apply absolute left-2;
+    }
+
+    > input[name="search"] {
+      @apply rounded-md border border-solid border-stone-200 bg-red-50;
+    }
+  }
+}
+
+.container {
+  --min: 15ch;
+  --gap: 1rem;
+
+  display: grid;
+  grid-gap: var(--gap);
+  /* min() with 100% prevents overflow
+    in extra narrow spaces */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+}

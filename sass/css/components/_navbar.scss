@@ -1,0 +1,94 @@
+@use "../mixins/bootstrap" as *;
+
+/*
+* Portfolio navigation
+*/
+.portfolio-navigation {
+  width: 100%;
+
+  position: fixed;
+
+  z-index: 5;
+
+  backdrop-filter: blur(rem(8));
+
+  mask {
+    display: flex;
+    position: absolute;
+    top: 0;
+
+    z-index: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: get($colors, body);
+
+    mask-image: linear-gradient(
+      to bottom,
+      get($colors, body) 0%,
+      transparentize(get($colors, body), 0.5) 70%,
+      transparentize(get($colors, body), 1) 100%
+    );
+  }
+
+  /*
+	* Holding container
+	*/
+  container {
+    height: 100%;
+    z-index: 1;
+  }
+  navigation-content {
+    height: 100%;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr rem(64) 1fr;
+
+    position: relative;
+  }
+
+  /*
+	* Logo section
+	*/
+  .logo {
+    img {
+      height: rem(48);
+      width: auto;
+      object-fit: cover;
+    }
+  }
+
+  .separator {
+    width: rem(24);
+  }
+
+  /*
+  * Links section
+  */
+  .places {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+
+  .search {
+    margin-left: auto;
+
+    input {
+      width: rem(160);
+
+      &:focus,
+      &:focus-within {
+        width: rem(200);
+      }
+    }
+  }
+}
+
+/*
+* Blog navigation
+*/
+.blog-navigation {
+}

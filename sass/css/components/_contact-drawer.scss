@@ -1,0 +1,63 @@
+@use "../mixins/bootstrap" as *;
+
+contact-drawer {
+  position: fixed;
+  bottom: calc(rem(-400) + rem(0));
+
+  height: rem(400);
+
+  width: 100%;
+
+  z-index: 5;
+
+  arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    position: absolute;
+    top: rem(-32);
+
+    height: rem(32);
+    width: rem(64);
+
+    > svg {
+      transform: rotate(-90deg);
+      stroke: white;
+      fill: white;
+    }
+  }
+
+  > container {
+    justify-items: center;
+    align-items: center;
+  }
+
+  drawer-content {
+    max-width: rem(300);
+
+    > a > div {
+      height: rem(24);
+
+      > svg {
+        height: rem(24);
+        width: rem(24);
+        fill: white;
+      }
+    }
+  }
+
+  &.active {
+    bottom: 0;
+
+    arrow {
+      top: rem(-16);
+
+      > svg {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
