@@ -1,4 +1,4 @@
-# Babylonian Archives of the Veiled Choir
+# The Veiled Choir // Library of Babel
 
 > There are certain beings, woven from the threads of light and shadow, whose names echo through the oldest corners of our history.
 >
