@@ -9,12 +9,11 @@
 ### Purpose
 
 Fan website of [Mr. Bald](https://www.youtube.com/@Mc.Baldiee)
-A quasi-wiki and collection of his writing, Channel 4.
+A quasi-wiki and collection of his writing, all content from Channel 14.
 
 ### Contact
 
 Made with love by little old me, **solràz**.
 
 **Discord:** @solraz
-
 ###### ~~(add me please, I am desperate for friends)~~
